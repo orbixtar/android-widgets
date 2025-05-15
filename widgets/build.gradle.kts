@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
     id("maven-publish")
+    id("signing")
 }
 
 android {
@@ -33,49 +34,56 @@ android {
     }
 }
 
-/*publishing{
-    publications{
-        create<MavenPublication>("release"){
-            from(components["release"])
-            groupId = "com.orbixtartechnologies.widgets"
-            artifactId = "core"  // can be `loadingbutton`, `core`, etc.
-            version = "1.0.0"
+/*afterEvaluate {
+    publishing{
+        publications{
+            create<MavenPublication>("release"){
+                from(components["release"])
+                groupId = "com.cloudonesol"
+                artifactId = "widgets"
+                version = "1.0.1"
 
-            pom {
-                name.set("Orbixtar Widgets")
-                description.set("A collection of custom Android UI widgets.")
-                url.set("https://github.com/yourgithub/widgets") // update this
-                licenses {
-                    license {
-                        name.set("The MIT License")
-                        url.set("https://opensource.org/licenses/MIT")
+                pom {
+                    name.set("Orbixtar Widgets")
+                    description.set("A collection of custom Android UI widgets.")
+                    url.set("https://github.com/orbixtar/android-widgets") // update this
+                    licenses {
+                        license {
+                            name.set("The MIT License")
+                            url.set("https://opensource.org/licenses/MIT")
+                        }
+                    }
+                    developers {
+                        developer {
+                            id.set("orbixtartechnologies")
+                            name.set("Orbixtar Technologies")
+                            email.set("orbixtartechnologies@gmail.com")
+                        }
+                    }
+                    scm {
+                        connection.set("scm:git:https://github.com/orbixtar/android-widgets.git")
+                        developerConnection.set("scm:git:ssh://git@github.com:orbixtar/android-widgets.git")
+                        url.set("https://github.com/orbixtar/android-widgets")
                     }
                 }
-                developers {
-                    developer {
-                        id.set("orbixtartechnologies")
-                        name.set("Orbixtar Technologies")
-                        email.set("orbixtartechnologies@gmail.com")
-                    }
-                }
-                scm {
-                    connection.set("scm:git:https://github.com/yourgithub/widgets.git")
-                    developerConnection.set("scm:git:ssh://git@github.com:yourgithub/widgets.git")
-                    url.set("https://github.com/yourgithub/widgets")
+            }
+        }
+
+        repositories {
+            maven {
+                name = "MavenCenteral"
+                url = uri("https://ossrh-staging-api.central.sonatype.com/service/local/staging/deploy/maven2/")
+                credentials {
+                    username = project.findProperty("ossrhUsername") as String? ?: ""
+                    password = project.findProperty("ossrhPassword") as String? ?: ""
                 }
             }
         }
     }
-}
 
-repositories {
-    maven {
-        name = "MavenCentral"
-        url = uri("https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/")
-        credentials {
-            username = project.findProperty("ossrhUsername") as String? ?: ""
-            password = project.findProperty("ossrhPassword") as String? ?: ""
-        }
+    signing {
+        useGpgCmd()
+        sign(publishing.publications["release"])
     }
 }*/
 
