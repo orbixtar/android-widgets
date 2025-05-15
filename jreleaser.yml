@@ -1,0 +1,28 @@
+project:
+  name: widgets
+  version: 1.0.2
+  description: A professional Android UI widgets library
+  website: https://github.com/orbixtar/android-widgets
+  authors:
+    - OrbixTar Technologies
+  license: Apache-2.0
+
+signing:
+  active: ALWAYS
+  armored: true
+
+deploy:
+  maven:
+    central:
+      active: ALWAYS
+      url: https://s01.oss.sonatype.org/service/local/
+      snapshotUrl: https://s01.oss.sonatype.org/content/repositories/snapshots/
+      stagingRepositories:
+        - build/staging-deploy
+      coordinates:
+        groupId: com.cloudonesol
+        artifactId: widgets
+        version: 1.0.2
+      credentials:
+        username: {{ env.SONATYPE_USERNAME }}
+        password: {{ env.SONATYPE_PASSWORD }}
