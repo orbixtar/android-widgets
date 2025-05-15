@@ -1,5 +1,5 @@
 project:
-  name: widgets
+  name: android-widgets
   version: 1.0.3
   description: A professional Android UI widgets library
   website: https://github.com/orbixtar/android-widgets
