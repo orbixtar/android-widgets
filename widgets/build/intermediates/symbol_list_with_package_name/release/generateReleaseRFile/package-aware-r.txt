@@ -1,0 +1,13 @@
+com.orbixtartechnologies.widgets
+attr backgroundColor
+attr cornerRadius
+attr disabledColor
+attr disabledTextColor
+attr minHeight
+attr resetAfterFailed
+attr rippleAlpha
+attr rippleColor
+attr rippleEnable
+attr text
+attr textColor
+styleable LoadingButton backgroundColor cornerRadius disabledColor disabledTextColor minHeight resetAfterFailed rippleAlpha rippleColor rippleEnable text textColor
